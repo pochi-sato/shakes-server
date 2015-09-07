@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "production": "NODE_ENV=production node ./bin/www",
+    "start": "NODE_ENV=development supervisor -i package.json,node_modules -e node,js,json ./bin/www",
+    "dev": "NODE_ENV=development supervisor -i package.json,node_modules -e node,js,json ./bin/www",
+    "debug": "NODE_ENV=development node-debug ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
